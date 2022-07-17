@@ -9,9 +9,8 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="vue@2.6.14"></script>
-    <title>Usuários Randômicos</title>
+    <title>Usuário Randômico</title>
 </head>
-
 <body>
     <div id="app">
         <div class="app-c">
@@ -25,10 +24,9 @@
             <h4><strong>Estado:</strong> {{estado}} </h4>
             <h4><strong>Cidade:</strong> {{cidade}} </h4>
         </div>
-
         <div class="btno"><button class="btni"
              v-blind:class="genero" @click="obtemUsuario">
-             Novo usuáriorandômico</button></div>
+             Novo usuário randômico</button></div>
     </div>
     <script>
         const app = new Vue({
@@ -43,7 +41,6 @@
                 pais: '',
                 estado:'',
                 cidade:''
-
             },
             methods: {
                 async obtemUsuario() {
@@ -57,13 +54,9 @@
                     this.pais = results[0].location.country
                     this.estado = results[0].location.state
                     this.cidade = results[0].location.city
-                  
-                    
-
                 }
             }
         })
     </script>
 </body>
-
 </html>
