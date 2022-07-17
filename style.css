@@ -1,0 +1,45 @@
+body {
+    background-color: rgba(0, 0, 0, 0.829);
+}
+#app {
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: auto;
+    width: 800px;
+    height: 700px;
+
+}
+.app-c {
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.466);
+    margin-top: 25%;
+    background-color: rgba(126, 119, 119, 0.267);
+    border-radius: 9px;
+    color: rgb(238, 228, 228);
+    width: 90%;
+    height: 100%;
+}
+img {
+    border-radius: 50%;
+    width: 130px;
+    box-shadow: 2px 4px 15px;
+}
+.btni {
+    background-color: rgb(55, 55, 241);
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+.btni:active {
+    position: relative;
+    top: 1px;
+    box-shadow: none;
+    background-color: rgb(9, 9, 70);
+}
+strong{
+    text-decoration: underline;
+}

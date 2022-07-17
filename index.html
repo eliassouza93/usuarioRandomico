@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="vue@2.6.14"></script>
+    <title>Usuários Randômicos</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="app-c">
+            <img v-bind:src='imagem' v-bind:alt="nome">
+            <h3> </h3>
+            <h4><strong>Nome:</strong> {{nome}} </h4>
+            <h4><strong>Sobrenome:</strong> {{sobrenome}} </h4>
+            <h4><strong>Email:</strong> {{email}} </h4>
+            <h4><strong>Telefone:</strong> {{telefone}} </h4>
+            <h4><strong>Cidade:</strong> {{cidade}} </h4>
+        </div>
+
+        <div class="btno"><button class="btni" v-blind:class="genero" @click="obtemUsuario">Novo usuário
+                randômico</button></div>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                imagem: '',
+                nome: '',
+                sobrenome: '',
+                email: '',
+                telefone: '',
+                genero: '',
+                cidade: ''
+
+            },
+            methods: {
+                async obtemUsuario() {
+                    const res = await fetch('https://randomuser.me/api')
+                    const { results } = await res.json()
+                    this.imagem = results[0].picture.large
+                    this.nome = results[0].name.first
+                    this.sobrenome = results[0].name.last
+                    this.email = results[0].email
+                    this.telefone = results[0].phone
+                    this.cidade = results[0].location.city
+                    results[0].gender == 'male' ? this.genero = 'masculino ' : this.genero = ['feminino']
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
