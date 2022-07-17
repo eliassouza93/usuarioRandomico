@@ -21,23 +21,28 @@
             <h4><strong>Sobrenome:</strong> {{sobrenome}} </h4>
             <h4><strong>Email:</strong> {{email}} </h4>
             <h4><strong>Telefone:</strong> {{telefone}} </h4>
+            <h4><strong>Pais:</strong> {{pais}} </h4>
+            <h4><strong>Estado:</strong> {{estado}} </h4>
             <h4><strong>Cidade:</strong> {{cidade}} </h4>
         </div>
 
-        <div class="btno"><button class="btni" v-blind:class="genero" @click="obtemUsuario">Novo usuário
-                randômico</button></div>
+        <div class="btno"><button class="btni"
+             v-blind:class="genero" @click="obtemUsuario">
+             Novo usuáriorandômico</button></div>
     </div>
     <script>
         const app = new Vue({
             el: '#app',
             data: {
-                imagem: '',
+                imagem: 'https://www.metroworldnews.com.br/resizer/aBQmxVcPwhNBPnDhpVvAgKTuGyk=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/SM67CSXBGJD67JB2F6M4I3MMNQ.webp',
                 nome: '',
                 sobrenome: '',
                 email: '',
                 telefone: '',
                 genero: '',
-                cidade: ''
+                pais: '',
+                estado:'',
+                cidade:''
 
             },
             methods: {
@@ -49,8 +54,11 @@
                     this.sobrenome = results[0].name.last
                     this.email = results[0].email
                     this.telefone = results[0].phone
+                    this.pais = results[0].location.country
+                    this.estado = results[0].location.state
                     this.cidade = results[0].location.city
-                    results[0].gender == 'male' ? this.genero = 'masculino ' : this.genero = ['feminino']
+                  
+                    
 
                 }
             }
